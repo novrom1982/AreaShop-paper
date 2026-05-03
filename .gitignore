@@ -23,3 +23,6 @@ local.properties
 dependency-reduced-pom.xml
 
 desktop.ini
+
+# CFR decompilation scratch
+.fork-decomp/
