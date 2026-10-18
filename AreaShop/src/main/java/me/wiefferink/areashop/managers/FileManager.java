@@ -107,14 +107,18 @@ public class FileManager extends Manager {
 	public void shutdown() {
 		// Update lastactive time for players that are online now
 		for(GeneralRegion region : getRegions()) {
-			Player player = Bukkit.getPlayer(region.getOwner());
-			if(player != null) {
-				region.updateLastActiveTime();
+			java.util.UUID ownerUuid = region.getOwner();
+			if(ownerUuid != null) {
+				Player player = Bukkit.getPlayer(ownerUuid);
+				if(player != null) {
+					region.updateLastActiveTime();
+				}
 			}
 		}
 		// Save files that need to be saved
 		saveRequiredFilesAtOnce();
 	}
+
 
 
 	//////////////////////////////////////////////////////////
